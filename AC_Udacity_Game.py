@@ -90,21 +90,22 @@ def validate_answer():
     validate_list = quiz_answer_list()
     print_filled_quiz = filled_quizzes ()
     position_in_list = 0 # this is my base count. Zero corresponds to the first position/item in the list.  
+    final_position_list = 3 # This is the position of the last items in the list, the 4th item.
     while True:
         user_input = raw_input ("Enter Answer here: ") # For the user to enter the input.
         while user_input != validate_list[position_in_list]: # Negative conditioning for cases in which the answer is not correct.
-         if position_in_list < 3: # Sets top limit of count.
+         if position_in_list < final_position_list: # Sets top limit of count.
             print "\nWrong spelling. Please try again."  # Communicates the user that the answer entered was wrong.
             break # To stops the loop.
          else:
             return "\nYou exceeded the number of trials. \nGame over.Thank you for playing!\n"  # For when trials have been used.                        
         while user_input == validate_list[position_in_list]: # Conditioning for when the answer is correct.
-         if position_in_list < 3: # IF still within the allowed count.
+         if position_in_list < final_position_list: # IF still within the allowed count.
              print "\nCongratulations! Your answer is correct.\n\n" + print_filled_quiz[position_in_list] +"\n\nPlease continue. " #Communicated the user that the answer was right and placed it in the quiz, filling the blanck.
-             position_in_list = position_in_list +1 # To stops the loop.
+             position_in_list = position_in_list + 1 # To stops the loop.
          else:     
              print "\nCongratulations! Your answer is correct.\n\nYou completed the level!!!PLease continue.\n\n________________________________\n\n"
-             return next_level() # Moving to next level.
+             return "Todo bien" # Moving to next level.
                
 #___________________________________________________________________Part3
 
